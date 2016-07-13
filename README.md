@@ -5,6 +5,9 @@
 - вспомогательные модули, связанные по веб-сервисам (SOAP, JAX-WS) и по REST (JAX-RS)
 - сохранение данных в RMDBS (H2) и динамическое конфигурирование модулей по JMX.
 
+### Требование к участникам
+Опыт программирования на Java. Базовые знания Maven.
+
 ## Необходимое на курсе ПО
 -  <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK8</a>
 -  <a href="http://git-scm.com/downloads">Git</a>
