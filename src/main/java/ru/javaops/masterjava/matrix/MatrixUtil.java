@@ -1,8 +1,7 @@
 package ru.javaops.masterjava.matrix;
 
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.*;
 
 /**
  * gkislin
@@ -12,7 +11,56 @@ public class MatrixUtil {
 
     // TODO implement parallel multiplication matrixA*matrixB
     public static int[][] concurrentMultiply(int[][] matrixA, int[][] matrixB, ExecutorService executor) throws InterruptedException, ExecutionException {
-        return null;
+        return matrixMultiplyUsingThreadPoolExecutor_Runnable(matrixA,matrixB, executor);
+    }
+
+    public static int[][] matrixMultiplyUsingThreadPoolExecutor_Callable(int[][] matrixA, int[][] matrixB, ExecutorService executorService) throws ExecutionException, InterruptedException {
+        final int matrixSize = matrixA.length;
+        final int[][] matrixC = new int[matrixSize][matrixSize];
+
+        Future<Integer> task;
+
+        for (int i = 0; i < matrixSize; i++) {
+            int finalI = i;
+            task = executorService.submit(new Callable<Integer>() {
+                @Override
+                public Integer call() throws Exception {
+                    for (int j = 0; j < matrixSize; j++) {
+                        int sum = 0;
+                        for (int k = 0; k < matrixSize; k++) {
+                            sum += matrixA[finalI][k] * matrixB[k][j];
+                        }
+                        matrixC[finalI][j] = sum;
+                    }
+                    return 1;
+                }
+            });
+        }
+        executorService.shutdown();
+        return matrixC;
+    }
+
+    public static int[][] matrixMultiplyUsingThreadPoolExecutor_Runnable(int[][] matrixA, int[][] matrixB, ExecutorService executorService) throws ExecutionException, InterruptedException {
+        final int matrixSize = matrixA.length;
+        final int[][] matrixC = new int[matrixSize][matrixSize];
+
+        for (int i = 0; i < matrixSize; i++) {
+            int finalI = i;
+            executorService.submit(new Runnable() {
+                @Override
+                public void run() {
+                    for (int j = 0; j < matrixSize; j++) {
+                        int sum = 0;
+                        for (int k = 0; k < matrixSize; k++) {
+                            sum += matrixA[finalI][k] * matrixB[k][j];
+                        }
+                        matrixC[finalI][j] = sum;
+                    }
+                }
+            });
+        }
+        executorService.shutdown();
+        return matrixC;
     }
 
     public static int[][] singleThreadMultiplyOpt(int[][] matrixA, int[][] matrixB) {
