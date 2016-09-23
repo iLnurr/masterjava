@@ -1,0 +1,22 @@
+
+grigory.kislin
+по поводу ведения проекта в git (если с нуля или подстроить уже имеющийся через set-url):
+1. Создть на гитхабе новый репозиторий masterjava
+
+2. Склонировал его на свой комп
+$ git clone https://github.com/[GIT_ACCOUNT]/masterjava3. Проверить удаленный доступ на push и fetch
+$ git remote -v
+origin  https://github.com/mtroot/masterjava.git (fetch)
+origin  https://github.com/mtroot/masterjava.git (push)4. Установить pull на JavaWebinar
+$ git remote set-url origin https://github.com/JavaWebinar/masterjava.git5. Установить push на свой проект
+$ git remote set-url --push origin https://github.com/[GIT_ACCOUNT]/masterjava.git6. Проверить:
+$ git remote -v
+origin  https://github.com/JavaWebinar/masterjava.git (fetch)
+origin  https://github.com/[GIT_ACCOUNT]/masterjava.git (push)7. Скачть все изменения (качаются с https://github.com/JavaWebinar/masterjava.git)
+$ git pull
+remote: Counting objects: 50, done.
+remote: Total 50 (delta 0), reused 0 (delta 0), pack-reused 50
+Unpacking objects: 100% (50/50), done.
+From https://github.com/JavaWebinar/masterjava
+* [new branch]      master     -> origin/masterДЗ делать в ветках (как в topjava)
+Изменения из JavaWebinar будут не патчами, а просто через pull (Ctrl+T)
