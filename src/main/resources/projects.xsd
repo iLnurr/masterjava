@@ -4,16 +4,16 @@
            targetNamespace="http://javaops.ru"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
-    <xs:element name="Project">
+    <xs:element name="Projects">
         <xs:complexType>
             <xs:sequence>
                 <xs:element type="xs:string" name="name"/>
                 <xs:element type="xs:string" name="description"/>
             </xs:sequence>
-            <xs:attribute name="groups" type="Group"/>
+            <xs:attribute name="groups" type="Groups"/>
         </xs:complexType>
     </xs:element>
-    <xs:simpleType name="Group">
+    <xs:simpleType name="Groups">
         <xs:restriction base="xs:string">
             <xs:enumeration value="REGISTERING"/>
             <xs:enumeration value="CURRENT"/>
