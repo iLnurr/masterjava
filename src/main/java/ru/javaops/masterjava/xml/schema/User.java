@@ -23,8 +23,8 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="fullName" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element ref="{http://javaops.ru}Group"/>
  *       &lt;/sequence>
- *       &lt;attribute name="group" type="{http://javaops.ru}Group" />
  *       &lt;attribute name="flag" use="required" type="{http://javaops.ru}flagType" />
  *       &lt;attribute name="city" use="required" type="{http://www.w3.org/2001/XMLSchema}IDREF" />
  *     &lt;/restriction>
@@ -37,7 +37,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "email",
-    "fullName"
+    "fullName",
+    "group"
 })
 @XmlRootElement(name = "User", namespace = "http://javaops.ru")
 public class User {
@@ -46,7 +47,7 @@ public class User {
     protected String email;
     @XmlElement(namespace = "http://javaops.ru", required = true)
     protected String fullName;
-    @XmlAttribute(name = "group")
+    @XmlElement(name = "Group", namespace = "http://javaops.ru", required = true)
     protected Group group;
     @XmlAttribute(name = "flag", required = true)
     protected FlagType flag;

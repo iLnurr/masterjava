@@ -42,7 +42,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="Project">
+ *         &lt;element name="Projects">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
@@ -72,8 +72,8 @@ public class Payload {
     protected Payload.Cities cities;
     @XmlElement(name = "Users", namespace = "http://javaops.ru", required = true)
     protected Payload.Users users;
-    @XmlElement(name = "Project", namespace = "http://javaops.ru", required = true)
-    protected Payload.Project project;
+    @XmlElement(name = "Projects", namespace = "http://javaops.ru", required = true)
+    protected Payload.Projects projects;
 
     /**
      * Gets the value of the cities property.
@@ -124,27 +124,27 @@ public class Payload {
     }
 
     /**
-     * Gets the value of the project property.
+     * Gets the value of the projects property.
      * 
      * @return
      *     possible object is
-     *     {@link Payload.Project }
+     *     {@link Payload.Projects }
      *     
      */
-    public Payload.Project getProject() {
-        return project;
+    public Payload.Projects getProjects() {
+        return projects;
     }
 
     /**
-     * Sets the value of the project property.
+     * Sets the value of the projects property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Payload.Project }
+     *     {@link Payload.Projects }
      *     
      */
-    public void setProject(Payload.Project value) {
-        this.project = value;
+    public void setProjects(Payload.Projects value) {
+        this.projects = value;
     }
 
 
@@ -231,10 +231,10 @@ public class Payload {
     @XmlType(name = "", propOrder = {
         "project"
     })
-    public static class Project {
+    public static class Projects {
 
         @XmlElement(name = "Project", namespace = "http://javaops.ru")
-        protected List<ru.javaops.masterjava.xml.schema.Project> project;
+        protected List<Project> project;
 
         /**
          * Gets the value of the project property.
@@ -254,13 +254,13 @@ public class Payload {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link ru.javaops.masterjava.xml.schema.Project }
+         * {@link Project }
          * 
          * 
          */
-        public List<ru.javaops.masterjava.xml.schema.Project> getProject() {
+        public List<Project> getProject() {
             if (project == null) {
-                project = new ArrayList<ru.javaops.masterjava.xml.schema.Project>();
+                project = new ArrayList<Project>();
             }
             return this.project;
         }

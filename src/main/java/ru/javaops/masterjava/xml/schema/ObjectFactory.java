@@ -34,6 +34,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Project }
+     * 
+     */
+    public Project createProject() {
+        return new Project();
+    }
+
+    /**
      * Create an instance of {@link Payload }
      * 
      */
@@ -42,11 +50,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ru.javaops.masterjava.xml.schema.Project }
+     * Create an instance of {@link Project.Groups }
      * 
      */
-    public ru.javaops.masterjava.xml.schema.Project createProject() {
-        return new ru.javaops.masterjava.xml.schema.Project();
+    public Project.Groups createProjectGroups() {
+        return new Project.Groups();
+    }
+
+    /**
+     * Create an instance of {@link Group }
+     * 
+     */
+    public Group createGroup() {
+        return new Group();
     }
 
     /**
@@ -74,11 +90,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Payload.Project }
+     * Create an instance of {@link Payload.Projects }
      * 
      */
-    public Payload.Project createPayloadProject() {
-        return new Payload.Project();
+    public Payload.Projects createPayloadProjects() {
+        return new Payload.Projects();
     }
 
     /**

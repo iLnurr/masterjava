@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Payload xmlns="http://javaops.ru">
+  <Cities>
+    <City id="spb">Санкт-Петербург</City>
+    <City id="msk">Москва</City>
+  </Cities>
+  <Users>
+    <User flag="active" city="spb">
+      <email>a@mail.ru</email>
+      <fullName>ivanov i.i.</fullName>
+      <Group groupType="CURRENT">
+        <name>topjava 05.2016</name>
+      </Group>
+    </User>
+  </Users>
+  <Projects>
+    <Project>
+      <name>topjava</name>
+      <description>JavaWeb</description>
+      <Groups>
+        <Group groupType="CURRENT">
+          <name>topjava 05.2016</name>
+        </Group>
+        <Group groupType="CURRENT">
+          <name>topjava 09.2016</name>
+        </Group>
+      </Groups>
+    </Project>
+  </Projects>
+</Payload>

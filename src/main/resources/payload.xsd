@@ -21,7 +21,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="Project">
+                <xs:element name="Projects">
                     <xs:complexType>
                         <xs:sequence minOccurs="0" maxOccurs="unbounded">
                             <xs:element ref="Project"/>
@@ -37,8 +37,8 @@
             <xs:sequence>
                 <xs:element type="xs:string" name="email"/>
                 <xs:element type="xs:string" name="fullName"/>
+                <xs:element ref="Group"/>
             </xs:sequence>
-            <xs:attribute name="group" type="Group"/>
             <xs:attribute type="flagType" name="flag" use="required"/>
             <xs:attribute type="xs:IDREF" name="city" use="required"/>
         </xs:complexType>
@@ -64,15 +64,30 @@
 
     <xs:element name="Project">
         <xs:complexType>
-            <xs:sequence>
+            <xs:all>
                 <xs:element type="xs:string" name="name"/>
                 <xs:element type="xs:string" name="description"/>
-            </xs:sequence>
-            <xs:attribute name="group" type="Group"/>
+                <xs:element name="Groups">
+                    <xs:complexType>
+                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                            <xs:element ref="Group"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
         </xs:complexType>
     </xs:element>
 
-    <xs:simpleType name="Group">
+    <xs:element name="Group">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="name"/>
+            </xs:sequence>
+            <xs:attribute type="GroupType" name="groupType" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="GroupType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="REGISTERING"/>
             <xs:enumeration value="CURRENT"/>
