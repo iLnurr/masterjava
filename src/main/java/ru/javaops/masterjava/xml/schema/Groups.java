@@ -1,20 +1,40 @@
+
 package ru.javaops.masterjava.xml.schema;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
- * Created by ilnur on 29.09.16.
+ * <p>Java class for Groups.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>
+ * <pre>
+ * &lt;simpleType name="Groups">
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *     &lt;enumeration value="REGISTERING"/>
+ *     &lt;enumeration value="CURRENT"/>
+ *     &lt;enumeration value="FINISHED"/>
+ *   &lt;/restriction>
+ * &lt;/simpleType>
+ * </pre>
+ * 
  */
-@XmlRootElement
-public class Groups {
-    @XmlElement
-    private String name;
+@XmlType(name = "Groups", namespace = "http://javaops.ru")
+@XmlEnum
+public enum Groups {
 
-    @XmlType
-    @XmlEnum(String.class)
-    public enum type{
-        @XmlEnumValue("REGISTERING") REGISTERING,
-        @XmlEnumValue("CURRENT") CURRENT,
-        @XmlEnumValue("FINISHED") FINISHED
+    REGISTERING,
+    CURRENT,
+    FINISHED;
+
+    public String value() {
+        return name();
     }
+
+    public static Groups fromValue(String v) {
+        return valueOf(v);
+    }
+
 }
