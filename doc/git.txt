@@ -4,7 +4,8 @@ grigory.kislin
 1. Создть на гитхабе новый репозиторий masterjava
 
 2. Склонировал его на свой комп
-$ git clone https://github.com/[GIT_ACCOUNT]/masterjava3. Проверить удаленный доступ на push и fetch
+$ git clone https://github.com/[GIT_ACCOUNT]/masterjava
+3. Проверить удаленный доступ на push и fetch
 $ git remote -v
 origin  https://github.com/mtroot/masterjava.git (fetch)
 origin  https://github.com/mtroot/masterjava.git (push)4. Установить pull на JavaWebinar
