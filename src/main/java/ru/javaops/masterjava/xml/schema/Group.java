@@ -6,12 +6,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for Groups.
+ * <p>Java class for Group.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="Groups">
+ * &lt;simpleType name="Group">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *     &lt;enumeration value="REGISTERING"/>
  *     &lt;enumeration value="CURRENT"/>
@@ -21,9 +21,9 @@ import javax.xml.bind.annotation.XmlType;
  * </pre>
  * 
  */
-@XmlType(name = "Groups", namespace = "http://javaops.ru")
+@XmlType(name = "Group", namespace = "http://javaops.ru")
 @XmlEnum
-public enum Groups {
+public enum Group {
 
     REGISTERING,
     CURRENT,
@@ -33,7 +33,7 @@ public enum Groups {
         return name();
     }
 
-    public static Groups fromValue(String v) {
+    public static Group fromValue(String v) {
         return valueOf(v);
     }
 

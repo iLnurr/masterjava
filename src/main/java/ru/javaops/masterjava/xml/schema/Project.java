@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
- *       &lt;attribute name="groups" type="{http://javaops.ru}Groups" />
+ *       &lt;attribute name="group" type="{http://javaops.ru}Group" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -35,15 +35,15 @@ import javax.xml.bind.annotation.XmlType;
     "name",
     "description"
 })
-@XmlRootElement(name = "Projects", namespace = "http://javaops.ru")
-public class Projects {
+@XmlRootElement(name = "Project", namespace = "http://javaops.ru")
+public class Project {
 
     @XmlElement(namespace = "http://javaops.ru", required = true)
     protected String name;
     @XmlElement(namespace = "http://javaops.ru", required = true)
     protected String description;
-    @XmlAttribute(name = "groups")
-    protected Groups groups;
+    @XmlAttribute(name = "group")
+    protected Group group;
 
     /**
      * Gets the value of the name property.
@@ -94,27 +94,27 @@ public class Projects {
     }
 
     /**
-     * Gets the value of the groups property.
+     * Gets the value of the group property.
      * 
      * @return
      *     possible object is
-     *     {@link Groups }
+     *     {@link Group }
      *     
      */
-    public Groups getGroups() {
-        return groups;
+    public Group getGroup() {
+        return group;
     }
 
     /**
-     * Sets the value of the groups property.
+     * Sets the value of the group property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Groups }
+     *     {@link Group }
      *     
      */
-    public void setGroups(Groups value) {
-        this.groups = value;
+    public void setGroup(Group value) {
+        this.group = value;
     }
 
 }
