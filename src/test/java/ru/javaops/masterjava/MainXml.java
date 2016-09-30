@@ -29,7 +29,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import static j2html.TagCreator.*;
-
 /**
  * User: gkislin
  */
