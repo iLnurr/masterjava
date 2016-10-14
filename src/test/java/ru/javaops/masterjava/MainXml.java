@@ -47,7 +47,7 @@ public class MainXml {
         MainXml main = new MainXml();
         String projectName = args[0];
 
-        Set<User> users = main.parceByJaxb(projectName, payloadUrl);
+        Set<User> users = main.parseByJaxb(projectName, payloadUrl);
         String out = outHtml(users, projectName, Paths.get("out/usersJaxb.html"));
         System.out.println(out);
 
@@ -65,8 +65,9 @@ public class MainXml {
         URL xsl = Resources.getResource("groups.xsl");
         try (InputStream xmlStream = payloadUrl.openStream(); InputStream xslStream = xsl.openStream()) {
             XsltProcessor processor = new XsltProcessor(xslStream);
+
 //        http://stackoverflow.com/questions/1667454/xsl-transformation-in-java-with-parameters
-//            http://www.w3schools.com/xsl/el_param.asp
+//        http://www.w3schools.com/xsl/el_param.asp
             processor.setParameter("projectName", projectName);
             return processor.transform(xmlStream);
         }
@@ -95,6 +96,7 @@ public class MainXml {
             if (groupNames.isEmpty()) {
                 throw new IllegalArgumentException("Invalid " + projectName + " or no groups");
             }
+
             // Users loop
             while (processor.doUntil(XMLEvent.START_ELEMENT, "User")) {
                 String groupRefs = processor.getAttribute("groupRefs");
@@ -116,7 +118,7 @@ public class MainXml {
         }
     }
 
-    private Set<User> parceByJaxb(String projectName, URL payloadUrl) throws Exception {
+    private Set<User> parseByJaxb(String projectName, URL payloadUrl) throws Exception {
         JaxbParser parser = new JaxbParser(ObjectFactory.class);
         parser.setSchema(Schemas.ofClasspath("payload.xsd"));
         try (InputStream is = payloadUrl.openStream()) {
